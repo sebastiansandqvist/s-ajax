@@ -1,5 +1,9 @@
 # s-ajax 
+
+## Work in Progress
+
 [![NPM version](https://img.shields.io/npm/v/s-ajax.svg)](https://www.npmjs.com/package/s-ajax) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-ajax.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-ajax.svg)](https://travis-ci.org/sebastiansandqvist/s-ajax) [![NPM license](https://img.shields.io/npm/l/s-ajax.svg)](https://www.npmjs.com/package/s-ajax)
+
 ## License
 Copyright (c) 2015, Sebastian Sandqvist <s.github@sparque.me>
 
