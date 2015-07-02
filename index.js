@@ -10,9 +10,9 @@ function onload(req, fn) {
 		return fn(null, req.response);
 	}
 	else {
-		return fn(new Error(new Error('Server returned error ' + req.status + ': ' + req.statusText));
+		return fn(new Error('Server returned error ' + req.status + ': ' + req.statusText));
 	}
-};
+}
 
 function onerror(fn) {
 	return fn(new Error('Connection error'));

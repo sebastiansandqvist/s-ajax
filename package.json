@@ -1,6 +1,6 @@
 {
   "name": "s-ajax",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dependency-free AJAX requests",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "lint": "jscs index.js --config=./etc/.jscs.json && jshint index.js",
+    "lint": "jscs index.js promise.js --config=./etc/.jscs.json && jshint index.js promise.js",
     "coverage_html": "mocha --require blanket -R html-cov > etc/coverage.html",
     "coverage": "mocha --require blanket --reporter mocha-lcov-reporter > etc/lcov.info"
   },
