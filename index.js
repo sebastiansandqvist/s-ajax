@@ -7,12 +7,10 @@ var ajax = module.exports = {};
 // ---------------------------------------
 function onload(req, fn) {
 	if (req.status >= 200 && req.status < 400) {
-		var text = req.responseText;
-		var data = req.responseType === 'json' ? JSON.parse(text) : text;
-		return fn(null, data);
+		return fn(null, req.response);
 	}
 	else {
-		return fn(new Error('Server returned an error'));
+		return fn(new Error(new Error('Server returned error ' + req.status + ': ' + req.statusText));
 	}
 };
 

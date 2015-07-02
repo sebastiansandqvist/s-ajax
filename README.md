@@ -4,6 +4,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/s-ajax.svg)](https://www.npmjs.com/package/s-ajax) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-ajax.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-ajax.svg)](https://travis-ci.org/sebastiansandqvist/s-ajax) [![NPM license](https://img.shields.io/npm/l/s-ajax.svg)](https://www.npmjs.com/package/s-ajax)
 
+A simple wrapper around the XMLHttpRequest API with support for Promises.
+
 ## Installation
 ```bash
 npm install --save s-ajax
@@ -11,6 +13,7 @@ npm install --save s-ajax
 *s-ajax uses CommonJS, so bundle via Browserify/Webpack/etc. before use.*
 
 ## Usage
+##### With callbacks
 ```javascript
 var ajax = require('s-ajax');
 
@@ -22,6 +25,22 @@ ajax.post('https://example.com', {foo: 'bar'}, function(response) {
 	console.log(response);
 });
 ```
+##### With promises
+```javascript
+var ajax = require('s-ajax/promise');
+
+ajax.get('https://example.com').then(function(data) {
+	console.log(data);
+});
+
+ajax.post('https://example.com', {foo: 'bar'}).then(function(response) {
+	console.log(response);
+});
+```
+
+## In progress:
+* Tests & coverage
+* AJAX file upload support
 
 ## License
 Copyright (c) 2015, Sebastian Sandqvist <s.github@sparque.me>
