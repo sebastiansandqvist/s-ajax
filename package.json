@@ -1,6 +1,6 @@
 {
   "name": "s-ajax",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Dependency-free AJAX requests",
   "main": "index.js",
   "directories": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
+    "lint": "jscs index.js --config=./etc/.jscs.json && jshint index.js",
     "coverage_html": "mocha --require blanket -R html-cov > etc/coverage.html",
     "coverage": "mocha --require blanket --reporter mocha-lcov-reporter > etc/lcov.info"
   },
@@ -30,13 +31,11 @@
   },
   "homepage": "https://github.com/sebastiansandqvist/s-ajax",
   "devDependencies": {
-    "blanket": "^1.1.6",
+    "blanket": "1.1.6",
     "chai": "^2.3.0",
     "codeclimate-test-reporter": "0.0.4",
-    "gulp": "^3.8.11",
-    "gulp-jshint": "^1.10.0",
-    "gulp-mocha": "^2.0.1",
-    "jshint-stylish": "^1.0.2",
+    "jscs": "^1.13.1",
+    "jshint": "^2.8.0",
     "mocha": "^2.2.4",
     "mocha-lcov-reporter": "0.0.2"
   }
