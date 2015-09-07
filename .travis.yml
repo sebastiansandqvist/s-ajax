@@ -4,10 +4,13 @@ language: node_js
 
 env:
   global:
-    - SAUCE_USERNAME='sebastiansandqvist'
-    - SAUCE_ACCESS_KEY='d7e54d10-e63a-486d-a51c-be8099a1270c'
+    - secure: dWn0d6GEY4WXM8vi0hCMP9IUwflBzfe7FrhbR3CwJTn/9+HJkW6aVkmRGspw39UW+xJ4fI3Lj5JkCO2rtN6h83mgWKYlXx8/3DIrf5WKwev9F8ES1YsM9A5Fwr5VWTSju96fnms7dG6p5a8N91QwhN3dGUguoKxErdKKEghkaQ0=
+    - secure: l3zpi+8++7jSdWHX9MNkGeyVa4W3wodWcsltmHX1gVfoqI58imO0mvZJgi195Zuv7uqazYSPHqHUC5UR58ThnHudYxGor5KVJIbNv5RTGAMvaxmBZLGZKYlhZhydfliJvVnO0cTJQsyUhfpLyuFnuSXcfRP2dDPM9G/j8AfnorU=
 
 matrix:
   include:
     - node_js: 'iojs-v3.0'
       env: BROWSER=1
+
+addons:
+  sauce_connect: true
