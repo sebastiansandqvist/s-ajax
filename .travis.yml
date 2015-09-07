@@ -15,10 +15,3 @@ matrix:
 		- node_js: "0.12"
 		- node_js: "0.10"
 		env: BROWSER=1
-
-addons:
-  code_climate:
-    repo_token: 6a96574ff5a9c05ad8206944d2f734da326380965fbbec6a757f82732ff6cf21
-script: "npm run coverage"
-after_script:
-  - codeclimate-test-reporter < etc/lcov.info
