@@ -1,17 +1,17 @@
-language: node_js
-
 sudo: false
 
+language: node_js
+
 env:
-	global:
-		- SAUCE_USERNAME="sebastiansandqvist"
-		- SAUCE_ACCESS_KEY="d7e54d10-e63a-486d-a51c-be8099a1270c"
+  global:
+    - SAUCE_USERNAME='sebastiansandqvist'
+    - SAUCE_ACCESS_KEY='d7e54d10-e63a-486d-a51c-be8099a1270c'
 
 matrix:
-	include:
-		- node_js: "iojs-v3.0"
-		- node_js: "iojs-v2.0"
-		- node_js: "iojs-v1.0"
-		- node_js: "0.12"
-		- node_js: "0.10"
-		env: BROWSER=1
+  include:
+    - node_js: 'iojs-v3.0'
+    - node_js: 'iojs-v2.0'
+    - node_js: 'iojs-v1.0'
+    - node_js: '0.12'
+    - node_js: '0.10'
+      env: BROWSER=1

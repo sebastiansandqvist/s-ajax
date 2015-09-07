@@ -3,7 +3,7 @@
 /**
  * Exports
  */
-let ajax = module.exports;
+var ajax = module.exports;
 
 
 /**
@@ -18,7 +18,8 @@ function onload(xhr, fn) {
 		return fn(null, xhr.response);
 	}
 
-	return fn(new Error(`Error ${xhr.status}: ${xhr.statusText}`));
+	var message = 'Error ' + xhr.status + ': ' + xhr.statusText;
+	return fn(new Error(message));
 
 }
 
@@ -55,13 +56,13 @@ function Ajax(method, xhr, data) {
 	this.method = method;
 	this.data = data;
 
-	const types = {
+	var types = {
 		json: 'application/json',
 		urlencoded: 'application/x-www-form-urlencoded'
 	};
 
 	// defaults to json for GET and urlencoded for POST
-	const type = method === 'get' ? types.json : types.urlencoded;
+	var type = method === 'get' ? types.json : types.urlencoded;
 	this.type(type);
 
 }
@@ -139,7 +140,7 @@ Ajax.prototype.send = function(fn) {
  */
 ajax.get = function(url) {
 
-	const xhr = new window.XMLHTTPRequest();
+	var xhr = new window.XMLHTTPRequest();
 	xhr.open('GET', url, true);
 
 	return new Ajax('get', xhr);
@@ -154,7 +155,7 @@ ajax.get = function(url) {
  */
 ajax.post = function(url, data) {
 
-	const xhr = new window.XMLHTTPRequest();
+	var xhr = new window.XMLHTTPRequest();
 	xhr.open('POST', url, true);
 
 	return new Ajax('post', xhr, data);
