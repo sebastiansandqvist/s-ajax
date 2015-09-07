@@ -1,5 +1,5 @@
 {
-    "disallowCapitalizedComments": true,
+    "disallowCapitalizedComments": false,
     "disallowEmptyBlocks": true,
     "disallowImplicitTypeConversion": ["numeric", "boolean", "binary", "string"],
     "disallowKeywords": ["with", "void", "do"],

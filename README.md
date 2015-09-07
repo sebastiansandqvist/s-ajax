@@ -4,7 +4,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/s-ajax.svg)](https://www.npmjs.com/package/s-ajax) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-ajax.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-ajax.svg)](https://travis-ci.org/sebastiansandqvist/s-ajax) [![NPM license](https://img.shields.io/npm/l/s-ajax.svg)](https://www.npmjs.com/package/s-ajax)
 
-A simple wrapper around the XMLHttpRequest API with support for Promises.
+A chainable wrapper around the XMLHttpRequest API
 
 ## Installation
 ```bash
@@ -13,27 +13,44 @@ npm install --save s-ajax
 *s-ajax uses CommonJS, so bundle via Browserify/Webpack/etc. before use.*
 
 ## Usage
-##### With callbacks
 ```javascript
 var ajax = require('s-ajax');
 
-ajax.get('https://example.com', function(data) {
+
+// A simple GET request
+ajax.get('https://foo.com').send(function(err, data) {
+	// ...
+});
+
+
+// A POST request with error and progress handling
+var data = {
+	foo: 'bar'
+}
+
+function onProgress(percentage) {
+	console.log(percentage);
+}
+
+function onError(err) {
+	console.log(err);
+}
+
+function onLoad(err, response) {
+	console.log(err, response);
+}
+
+ajax.post('https://foo.com')
+	.data(data)
+	.uploadProgress(onProgress)
+	.error(onError)
+	.send(onLoad);
+
+ajax.get('https://example.com', function(err, data) {
 	console.log(data);
 });
 
-ajax.post('https://example.com', {foo: 'bar'}, function(response) {
-	console.log(response);
-});
-```
-##### With promises
-```javascript
-var ajax = require('s-ajax/promise');
-
-ajax.get('https://example.com').then(function(data) {
-	console.log(data);
-});
-
-ajax.post('https://example.com', {foo: 'bar'}).then(function(response) {
+ajax.post('https://example.com', {foo: 'bar'}, function(err, response) {
 	console.log(response);
 });
 ```

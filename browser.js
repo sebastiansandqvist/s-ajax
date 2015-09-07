@@ -1,7 +1,8 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * Exports
  */
-let ajax = module.exports;
+var ajax = module.exports;
 
 
 /**
@@ -11,13 +12,12 @@ let ajax = module.exports;
  * @return {Function}       callback(err, response)
  */
 function onload(xhr, fn) {
-
 	if (xhr.status >= 200 && xhr.status < 400) {
 		return fn(null, xhr.response);
 	}
-
-	return fn(new Error(`Error ${xhr.status}: ${xhr.statusText}`));
-
+	else {
+		return fn(new Error(`Error ${xhr.status}: ${xhr.statusText}`));
+	}
 }
 
 /**
@@ -53,13 +53,13 @@ function Ajax(method, xhr, data) {
 	this.method = method;
 	this.data = data;
 
-	const types = {
+	var types = {
 		json: 'application/json',
 		urlencoded: 'application/x-www-form-urlencoded'
-	};
+	}
 
 	// defaults to json for GET and urlencoded for POST
-	const type = method === 'get' ? types.json : types.urlencoded;
+	var type = method === 'get' ? types.json : types.urlencoded;
 	this.type(type);
 
 }
@@ -71,7 +71,7 @@ function Ajax(method, xhr, data) {
 Ajax.prototype.type = function(type) {
 	this.xhr.setRequestHeader('Content-Type', type);
 	return this;
-};
+}
 
 /**
  * Set onerror handler
@@ -80,7 +80,7 @@ Ajax.prototype.type = function(type) {
 Ajax.prototype.error = function(fn) {
 	this.xhr.onerror = fn;
 	return this; // todo: also get errors by status
-};
+}
 
 /**
  * Set download progress handler
@@ -89,16 +89,16 @@ Ajax.prototype.error = function(fn) {
 Ajax.prototype.progress = function(fn) {
 	onprogress(this.xhr, fn);
 	return this;
-};
+}
 
 /**
  * Set upload progress handler
  * @param  {Function} fn
  */
 Ajax.prototype.uploadProgress = function(fn) {
-	onprogress(this.xhr.upload, fn);
+	onprogress(this.xhr.upload, fn)
 	return this;
-};
+}
 
 /**
  * Set post data
@@ -107,7 +107,7 @@ Ajax.prototype.uploadProgress = function(fn) {
 Ajax.prototype.data = function(data) {
 	this.data = data;
 	return this;
-};
+}
 
 /**
  * Submit ajax request
@@ -126,7 +126,7 @@ Ajax.prototype.send = function(fn) {
 	}
 
 
-};
+}
 
 // ------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ Ajax.prototype.send = function(fn) {
  */
 ajax.get = function(url) {
 
-	const xhr = new window.XMLHTTPRequest();
+	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
 
 	return new Ajax('get', xhr);
@@ -152,9 +152,12 @@ ajax.get = function(url) {
  */
 ajax.post = function(url, data) {
 
-	const xhr = new window.XMLHTTPRequest();
+	var xhr = new XMLHttpRequest();
 	xhr.open('POST', url, true);
 
 	return new Ajax('post', xhr, data);
 
 };
+
+
+},{}]},{},[1]);

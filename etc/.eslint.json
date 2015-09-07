@@ -1,0 +1,9 @@
+{
+	"extends": "@seabass",
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"valid-jsdoc": 0
+	}
+}
